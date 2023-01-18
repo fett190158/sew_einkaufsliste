@@ -1,19 +1,19 @@
 # userstory_02
 
-* title
+## title
 change list name
 
-* actors
+## actors
 user
 
-* description
+## description
 user changes the name of an existing list
 
-* input
+## input
 new name
 
-* internal state change
+## internal state change
 name of the list is changed to the new name
 
-* output
+## output
 list has the new name

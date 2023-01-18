@@ -1,19 +1,19 @@
 # userstory_01
 
-* title
+## title
 create list
 
-* actors
+## actors
 user
 
-* description
+## description
 user creates a list by clicking a button
 
-* input
+## input
 button click
 
-* internal state change
+## internal state change
 new list saved in database
 
-* output
+## output
 new list is created

@@ -1,19 +1,19 @@
 # userstory_02
 
-* title
+## title
 create product
 
-* actors
+## actors
 user
 
-* description
+## description
 user creates a product by clicking a button
 
-* input
+## input
 button click
 
-* internal state change
+## internal state change
 new product saved in database
 
-* output
+## output
 new product is created
