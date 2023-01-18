@@ -1,5 +1,5 @@
 # sew_einkaufsliste
 
 *liste erstellen
-#*
-#*produkte hinzufügen
+# *
+# *produkte hinzufügen
