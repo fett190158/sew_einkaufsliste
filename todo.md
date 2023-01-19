@@ -4,12 +4,12 @@
     * listenname
     * listendatum
     * produkte hinzufügen
-        * prudukt erstellen
+        * (prudukt erstellen)
     * anzahl der produkte
 
-* produkte erstellen
-    * produktname
-    * preis
+* (produkte erstellen)
+    * (produktname)
+    * (preis)
 
 * letztere einkaufslisten
     * alte einkaufslisten sehen
