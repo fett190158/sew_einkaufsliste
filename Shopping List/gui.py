@@ -47,9 +47,9 @@ class Shopping_List(tk.Frame):
                              command=lambda:
                              controller.show_frame(Older_Lists))
 
-        label.grid(row=0, column=1, padx=50, pady=00)
-        button1.grid(row=1, column=1, padx=50, pady=10)
-        button2.grid(row=2, column=1, padx=50, pady=10)
+        label.grid(row=0, column=1, padx=(100, 100), pady=(100, 10))
+        button1.grid(row=1, column=1, padx=(100, 100), pady=(10, 10))
+        button2.grid(row=2, column=1, padx=(100, 100), pady=(10, 100))
 
 
 class Create_List(tk.Frame):

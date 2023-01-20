@@ -1,12 +1,5 @@
-import sqlalchemy
-from datamodel import Base  #, shopping_list, product
+from sqlalchemy import create_engine
+from datamodel import Base
 
-
-def connect_database():
-    db_connection = sqlalchemy.create_engine("sqlite:///D:\\leina\\Documents\\Schule\\Softwareentwicklung (SEW)\\sew_einkaufsliste-1\\Shopping List\\database.sql")
-    Base.metadata.create_all(db_connection)
-    session_factory = sqlalchemy.orm.sessionmaker()
-    session_factory.configure(bind=db_connection)
-
-
-connect_database()
+engine = create_engine('sqlite:///database.sql')
+Base.metadata.create_all(engine)
