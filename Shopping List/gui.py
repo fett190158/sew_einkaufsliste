@@ -39,7 +39,8 @@ class Shopping_List(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
 
-        label = ttk.Label(self, text="Shopping List")
+        mainlabel = ttk.Label(self, text="Shopping List", font=(
+                              'Helvetica bold', 15))
         button1 = ttk.Button(self, text="Create List",
                              command=lambda:
                              controller.show_frame(Create_List))
@@ -47,9 +48,9 @@ class Shopping_List(tk.Frame):
                              command=lambda:
                              controller.show_frame(Older_Lists))
 
-        label.grid(row=0, column=1, padx=(100, 100), pady=(100, 10))
+        mainlabel.grid(row=0, column=1, padx=(0, 0), pady=(80, 10))
         button1.grid(row=1, column=1, padx=(100, 100), pady=(10, 10))
-        button2.grid(row=2, column=1, padx=(100, 100), pady=(10, 100))
+        button2.grid(row=2, column=1, padx=(100, 100), pady=(10, 80))
 
 
 class Create_List(tk.Frame):
@@ -57,28 +58,36 @@ class Create_List(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
 
-        label = ttk.Label(self, text="Create List")
-        entry1 = ttk.Entry(self)
+        mainlabel = ttk.Label(self, text="Create List", font=(
+                              'Helvetica bold', 15))
+        label1 = ttk.Label(self, text="List Name")
+        entry1 = ttk.Entry(self, width=10)
+        label2 = ttk.Label(self, text="List Date")
+        entry2 = ttk.Entry(self, width=10)
         back_button = ttk.Button(self, text="Back",
                                  command=lambda:
                                  controller.show_frame(Shopping_List))
 
-        label.grid(row=0, column=1, padx=50, pady=10)
-        entry1.grid(row=1, column=1, padx=0, pady=10)
-        back_button.grid(row=2, column=1, padx=50, pady=10)
+        mainlabel.grid(row=0, column=1, padx=(0, 0), pady=(80, 10))
+        label1.grid(row=1, column=1, padx=(100, 100), pady=(10, 0))
+        entry1.grid(row=2, column=1, padx=(0, 0), pady=(10, 10))
+        label2.grid(row=3, column=1, padx=(100, 100), pady=(10, 0))
+        entry2.grid(row=4, column=1, padx=(0, 0), pady=(10, 10))
+        back_button.grid(row=5, column=1, padx=(100, 100), pady=(10, 80))
 
 
 class Older_Lists(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
 
-        label = ttk.Label(self, text="Older Lists")
+        mainlabel = ttk.Label(self, text="Older Lists", font=(
+                              'Helvetica bold', 15))
         back_button = ttk.Button(self, text="Back",
                                  command=lambda:
                                  controller.show_frame(Shopping_List))
 
-        label.grid(row=0, column=1, padx=50, pady=10)
-        back_button.grid(row=1, column=1, padx=50, pady=10)
+        mainlabel.grid(row=0, column=1, padx=(0, 0), pady=(80, 10))
+        back_button.grid(row=1, column=1, padx=(100, 100), pady=(10, 80))
 
 
 app = tkinterApp()
