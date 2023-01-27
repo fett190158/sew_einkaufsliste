@@ -19,8 +19,8 @@ class Product(Base):
     ID = Column(Integer, primary_key=True)
     Name = Column(String)
     Quantity = Column(Integer)
-    Volume = Column(Integer, nullable=True)
-    Weight = Column(Integer, nullable=True)
+    Volume = Column(String, nullable=True)
+    Weight = Column(String, nullable=True)
     Shopping_Lists = relationship("ShoppingList",
                                   secondary=ShoppingList_Product,
                                   back_populates="Product")
