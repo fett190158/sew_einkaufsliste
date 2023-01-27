@@ -1,16 +1,16 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import Session, sessionmaker
-from datamodel import Base, ShoppingList, Product, ShoppingList_Product
+from sqlalchemy.orm import Session
+from datamodel import Base, ShoppingList, Product, Association
 
 engine = create_engine('sqlite:///database.sql')
 Base.metadata.create_all(engine)
 
 
-def create_shopping_list(session: Session, name: str, date: str):
-    new_shoppinglist = ShoppingList(Name=name, Date=date)
-    session.add(new_shoppinglist)
-    session.commit()
-    return new_shoppinglist
+def create_shopping_list(name: str, date: str):
+    with Session(engine) as session:
+        new_shoppinglist = ShoppingList(Name=name, Date=date)
+        session.add(new_shoppinglist)
+        session.commit()
 
 
 def create_product(session: Session, name: str, quantity: int, volume: int,
@@ -29,10 +29,5 @@ def add_product_to_shopping_list(session: Session, shopping_list: ShoppingList,
 
 
 if __name__ == '__main__':
-    Session = sessionmaker(bind=engine)
-    session = Session()
-    shopping_list = create_shopping_list(session, "Weekly Groceries",
-                                         "2022.01.01")
-    product = create_product(session, "Milk", 2, "1l", None)
-    add_product_to_shopping_list(session, shopping_list, product)
-    session.close()
+
+    create_shopping_list(name="test123", date="morgen")

@@ -1,29 +1,16 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, Table
+from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship
 
 
 Base = declarative_base()
 
 
-ShoppingList_Product = Table(
-    'ShoppingList_Product', Base.metadata,
-    Column("Shopping_Lists_ID", Integer, ForeignKey("Shopping_List.ID"),
-           primary_key=True),
-    Column("Products_ID", Integer, ForeignKey("Product.ID"),
-           primary_key=True))
-
-
-class Product(Base):
-    __tablename__ = "Product"
-
-    ID = Column(Integer, primary_key=True)
-    Name = Column(String)
-    Quantity = Column(Integer)
-    Volume = Column(String, nullable=True)
-    Weight = Column(String, nullable=True)
-    Shopping_Lists = relationship("ShoppingList",
-                                  secondary=ShoppingList_Product,
-                                  back_populates="Product")
+class Association(Base):
+    __tablename__ = "Association_Table"
+    Product_ID = Column(ForeignKey("Product.ID"), primary_key=True)
+    Shoppinglist_ID = Column(ForeignKey("Shopping_List.ID"), primary_key=True)
+    Shopping_List = relationship("ShoppingList", back_populates="Products")
+    Product = relationship("Product", back_populates="Shopping_Lists")
 
 
 class ShoppingList(Base):
@@ -32,5 +19,14 @@ class ShoppingList(Base):
     ID = Column(Integer, primary_key=True)
     Name = Column(String)
     Date = Column(String)
-    Products = relationship("Product", secondary=ShoppingList_Product,
-                            back_populates="Shopping_Lists")
+    Products = relationship("Association", back_populates="Shopping_List")
+
+
+class Product(Base):
+    __tablename__ = "Product"
+
+    ID = Column(Integer, primary_key=True)
+    Name = Column(String)
+    Volume = Column(String, nullable=True)
+    Weight = Column(String, nullable=True)
+    Shopping_Lists = relationship("Association", back_populates="Product")
