@@ -7,9 +7,10 @@ Base = declarative_base()
 
 class Association(Base):
     __tablename__ = "Association_Table"
-    Product_ID = Column(ForeignKey("Product.ID"), primary_key=True)
+    
     Shoppinglist_ID = Column(ForeignKey("Shopping_List.ID"), primary_key=True)
     Shopping_List = relationship("ShoppingList", back_populates="Products")
+    Product_ID = Column(ForeignKey("Product.ID"), primary_key=True)
     Product = relationship("Product", back_populates="Shopping_Lists")
 
 
@@ -27,6 +28,6 @@ class Product(Base):
 
     ID = Column(Integer, primary_key=True)
     Name = Column(String)
-    Volume = Column(String, nullable=True)
-    Weight = Column(String, nullable=True)
+    Volume_in_l = Column(String, nullable=True)
+    Weight_in_g = Column(String, nullable=True)
     Shopping_Lists = relationship("Association", back_populates="Product")
