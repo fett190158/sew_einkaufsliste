@@ -20,7 +20,8 @@ class tkinterApp(tk.Tk):
 
         self.frames = {}
 
-        for F in (Shopping_List, ShoppingLists, Create_List, Products, Create_Product):
+        for F in (Shopping_List, ShoppingLists, Create_List, Products,
+                  Create_Product):
             frame = F(container, self)
             self.frames[F] = frame
             frame.grid(row=0, column=0)
@@ -60,7 +61,9 @@ class ShoppingLists(tk.Frame):
 
         mainlabel = ttk.Label(self, text="Lists", font=(
                               'Helvetica bold', 15))
-        create_list_button = ttk.Button(self, text="Create List", command=lambda: controller.show_frame(Create_List))
+        create_list_button = ttk.Button(self, text="Create List",
+                                        command=lambda: controller.show_frame
+                                        (Create_List))
 
         for i, list_name in enumerate(list_names):
             list_buttons = ttk.Button(self, text=list_name)
@@ -122,7 +125,9 @@ class Products(tk.Frame):
         mainlabel = ttk.Label(self, text="Products", font=(
                               'Helvetica bold', 15))
 
-        create_product_button = ttk.Button(self, text="Create Product", command=lambda: controller.show_frame(Create_Product))
+        create_product_button = ttk.Button(self, text="Create Product",
+                                           command=lambda: controller.
+                                           show_frame(Create_Product))
 
         for i, product_name in enumerate(product_names):
             product_buttons = ttk.Button(self, text=product_name)
