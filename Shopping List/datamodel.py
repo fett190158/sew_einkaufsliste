@@ -7,7 +7,6 @@ Base = declarative_base()
 
 class Association(Base):
     __tablename__ = "Association_Table"
-    
     Shoppinglist_ID = Column(ForeignKey("Shopping_List.ID"), primary_key=True)
     Shopping_List = relationship("ShoppingList", back_populates="Products")
     Product_ID = Column(ForeignKey("Product.ID"), primary_key=True)
